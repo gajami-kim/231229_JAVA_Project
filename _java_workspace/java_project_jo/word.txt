@@ -1,0 +1,15 @@
+--단어장--
+rion:사자
+
+cat:고양이
+
+bird:새
+
+hello:안녕
+
+tiger:호랑이
+
+dog:강아지
+
+day:날
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘은?</h1>
+    <button type="button" id="btn">Today</button>
+    <h3 id="result">
+        <!-- 오늘 날짜와 요일을 출력 -->
+        <!-- 2024. 03. 19. (화) -->
+    </h3>
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            let date = new Date();
+            let day;
+
+            switch(date.getDay()) {
+                case 0: day='일'; break;
+                case 1: day='월'; break;
+                case 2: day='화'; break;
+                case 3: day='수'; break;
+                case 4: day='목'; break;
+                case 5: day='금'; break;
+                case 6: day='토'; break;
+            }
+            
+            document.getElementById('result').innerText = 
+            `${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}. (${day})`;
+        })
+        
+
+    </script>
+</body>
+</html>

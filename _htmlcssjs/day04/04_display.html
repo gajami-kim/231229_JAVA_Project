@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        block : 한 라인을 차지하는 태그
+            - width / height 크기 조절 가능
+            - 여백 조절 가능 (margin, padding)
+        inline : 현재 라인에서 글자 크기만큼 라인을 차지
+            - 크기 조절 불가능 (콘텐츠의 크기로 자동 설정)
+            - margin 불가능, padding 가능
+        inline-block
+            - 현재 라인에서 글자 크기만큼 라인을 차지
+            - 크기 조절이 가능
+            - 여백 조절 가능 (margin, padding 가능)
+        각 태그들은 기본 속성을 가지고 있음
+     -->
+     <style>
+        div{
+            width: 300px;
+            height: 50px;
+            background-color: aquamarine;
+        }
+        span{
+            display: block;
+            width: 300px;
+            height: 50px;
+            background-color: silver
+        }
+        button{
+            display: inline;
+            width: 300px;               
+            height: 50px;               
+            background-color: cornflowerblue;                
+        }
+        a{
+            display: inline-block;
+            width: 300px;               
+            height: 50px;               
+            background-color: crimson;                
+        }
+     </style>
+</head>
+<body>
+    <div>안녕하세요 div block 속성입니다.</div>
+    <span>안녕하세요 span inline 속성입니다.</span>
+    <button>안녕하세요 button inline-block 속성입니다.</button>
+    <a href="http://www.naver.com" target="_blank">naver inline 속성입니다.</a>
+</body>
+</html>

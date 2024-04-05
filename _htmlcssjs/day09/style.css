@@ -1,0 +1,364 @@
+@font-face {
+    font-family: el;
+    src: url(/font/SCDream3.otf);
+}
+@font-face {
+    font-family: em;
+    src: url(/font/SCDream4.otf);
+}
+@font-face {
+    font-family: eb;
+    src: url(/font/SCDream6.otf);
+}
+@font-face {
+    font-family: eb5;
+    src: url(/font/SCDream5.otf);
+}
+header {
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    height: 110px;
+    padding-top: 20px;
+    z-index: 10;
+}
+.link{
+    height: 70px;
+    position: absolute;
+    /* top: 20px; */
+    right: 330px;
+    color: gainsboro;
+}
+.link a{
+    font-size: 12px;
+    color: black;
+    padding: 5px;
+    font-family: el;
+}
+.link>a:nth-child(2){
+    margin-right: 20px;
+}
+.link>a:last-child{
+    font-family: eb5;
+}
+.logo{
+    /* height: 100px; */
+    margin: 10px 0 0 380px;
+}
+.navbar{
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%);
+}
+.navbar a{
+    color: black;
+    font-size: 16px;
+    padding: 35px;
+    font-family: eb;
+}
+/* 슬라이드 그림 */
+.main-img, .con-ex, .con-pro{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.main-img{
+    background-image: url(./img/main.jpg);
+    height: 670px;
+}
+/* 이용시간 */
+.con-time{
+    height: 100px;
+    /* background-color: beige; */
+    display: flex;
+    align-items: center;
+}
+.con-time>img{
+    width: 30px;
+    height: 30px;
+    margin-left: 35%;
+    margin-right: 5px;
+}
+.con-time .ti, .day, .time{
+    margin: 0 10px 0 10px;
+    font-size: 18px;
+}
+.con-time .ti, .time{
+    font-family: eb;
+}
+.con-time .day{
+    font-family: em;
+}
+.con-ex{
+    background-image: url(./img/mainCon1_bg.jpg);
+    height: 900px;
+}
+.con-ex p, .con-pro p, .con-info>p{
+    font-family: el;
+    text-align: center;
+    color: white;
+}
+.con-ex>p:first-child, .con-pro>p:first-child, .con-info>p:first-child{
+    font-size: 40px;
+    padding-top: 120px;
+}
+.con-ex>p:nth-child(2), .con-pro>p:nth-child(2), .con-info>p:nth-child(2){
+    font-size: 16px;
+    padding: 45px 0 40px 0;
+}
+.con-ex>.image{
+    display: flex;
+    width: 1200px;
+    height: 520px;
+    box-sizing: border-box;
+    /* border: 1px solid blue; */
+    margin:0 auto;
+}
+.con-ex>.image>div{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.con-ex>.image>div> p{
+    font-family: eb;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+}
+.con-ex .al-ex:hover, .sp-ex:hover{
+    border: 2px solid white;
+    transition: 0.5s;
+}
+.con-ex .al-ex, .sp-ex{
+    border: 2px solid rgba(255, 255, 255, 0);
+}
+.con-pro{
+    background-image: url(./img/mainCon2_bg.jpg);
+    height: 800px;
+}
+.con-pro p, .con-info p{
+    color: black;
+}
+.con-pro>.image{
+    display: flex;
+    width: 1195px;
+    height: 330px;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    margin-top: 20px;
+    margin-left: 20%;
+}
+.con-pro>.image>div{
+    margin: 10px;
+    background-color: white;
+}
+.con-pro>.image>div>p{
+    text-align: center;
+    font-family: eb;
+    margin-top: 18px;
+    font-size: 20px;
+}
+.con-pro>.image>div:hover{
+    background-color: #14865e;
+    box-shadow: 13px 13px 30px 10px rgba(173, 173, 173,0.6);
+    transition: box-shadow 0.3s;
+    
+}
+.con-pro>.image>div:hover .s{
+    color: white;
+}
+.con-info{
+    height: 800px;
+    /* background-color: antiquewhite; */
+}
+.con-info>.info1{
+    width: 550px;
+    height: 350px;
+    border: solid 1px rgba(194, 194, 194, 0.5);
+    margin: 10px 0 0 370px;
+    padding: 30px;
+}
+.con-info>.info1>p:first-child {
+    font-family: eb;
+    font-size: 25px;
+}
+.con-info>.info1>p:nth-child(3) {
+    font-family: el;
+    color: rgb(85, 85, 85);
+    font-size: 15px;
+    float: right;
+    margin: -20px 25px 0 0;
+}
+.con-info>.info1>.plus{
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin-top: -22px;
+}
+.con-info>.info1>p:nth-child(4){
+    font-family: em;
+    margin-top: 45px;
+    font-size: 20px;
+}
+.con-info>.info1>p:nth-child(5){
+    font-family: el;
+    margin-top: 40px;
+    color: gray;
+    margin: 60px 0 20px;
+    font-size: 15px;
+}
+.con-info .info1 .bt{
+    font-family: el;
+    color: rgb(60, 60, 60);
+    margin-top: 35px;
+}
+.con-info .info1 .date{
+    font-family: el;
+    float: right;
+    margin-top: -158px;
+    font-size: 15px;
+    clear: both;
+}
+.con-info .info1 .date p{
+    color: rgb(99, 99, 99);
+    margin-top: 40px;
+}
+hr{
+    border: 1px solid rgba(54, 54, 54, 0.1);
+}
+.con-info .info2{
+    width: 550px;
+    height: 410px;
+    /* border: solid 1px rgb(160, 160, 160); */
+    margin: -412px 0 0 1000px;
+    position: absolute;
+}
+.con-info .info3{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 552px;
+    height: 200px;
+}
+.con-info .info2 .info3 .ser, .map{
+    border: 1px solid rgba(194, 194, 194, 0.5);
+    width: 265px;
+    height: 200px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.con-info .info2 .info3 .map{
+    margin-left: 20px;
+}
+.con-info>.info2>.info3 .ser>img,.map>img{
+    margin-top: 45px;
+}
+.con-info>.info2>.info3 .ser>p, .map>p{
+    margin-top: 20px;
+    font-family: eb;
+}
+.con-info>.info2>.han{
+    width: 552px;
+    height: 190px;
+    background-image: url(/day09/img/mainCon3_banner.jpg);
+    background-position: center;
+    background-size: cover;
+    margin-top: 20px;
+}
+.con-info>.info2>.han>p:nth-child(1), .han>p:nth-child(2){
+    font-family: el;
+    color: white;
+    font-size: 29px;
+    padding-top: 10px;
+    margin-left: 30px;
+}
+.con-info>.info2>.han>p:nth-child(1){
+    padding-top: 35px;
+}
+.con-info>.info2>.han>p:nth-child(3){
+    font-family: eb;
+    color: white;
+    font-size: 15px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.top-btn{
+    position: absolute;
+    right: 50px;
+    bottom: -2458px;
+}
+footer{
+    height: 400px;
+    /* background-color: antiquewhite; */
+    padding-left: 20%;
+    font-family: el;
+}
+footer hr{
+    margin: 0;
+    pad: 0;
+    width: 1150px;
+}
+footer>.f-top{
+    font-size: 15px;
+    display: flex;
+    height: 90px;
+    line-height: 100px;
+}
+footer>.f-top>p{
+    padding-right: 20px;
+    color: rgb(99, 99, 99);
+}
+footer>.f-top>p:nth-child(4){
+    color: rgb(219, 1, 1);
+}
+footer>.f-bottom{
+    font-size: 13px;
+    display: flex;
+    color: rgb(176, 176, 176);
+}
+footer>.f-bottom p{
+    color: rgb(99, 99, 99);
+}
+footer>.f-bottom>.f-b-top>div{
+    height: 30px;
+    display: flex;
+    /* background-color: rgb(178, 204, 230); */
+}
+footer>.f-bottom>.f-b-top>.top1{
+    /* background-color: aqua; */
+    margin-top: 40px;
+    flex-grow: 0;
+}
+footer>.f-bottom>.f-b-top>.top2{
+    /* background-color: aquamarine; */
+    flex-grow: 1;
+}
+footer>.f-bottom>.f-b-top>div p{
+    padding-right: 15px;
+}
+footer>.f-bottom>.f-b-top>div .bar{
+    padding-left: 15px;
+}
+footer>.f-bottom>.f-b-top>.top3{
+    /* background-color: aqua; */
+    font-size: 12px;
+    margin-top: 25px;
+}
+footer>.f-bottom>.f-b-top>.top3 p{
+    color: rgb(105, 105, 105);
+}
+footer>.f-bottom>.f-b-side{
+    margin-top: 30px;
+    margin-left: 385px;
+}
+footer>.f-bottom>.f-b-side>.side-s{
+    font-family: em;
+    font-size: 12.5px;
+    padding: 10px;
+    width: 200px;
+    height: 40px;
+    color: rgb(105, 105, 105);
+    border: 1px solid rgba(224, 224, 224, 0.705);
+}

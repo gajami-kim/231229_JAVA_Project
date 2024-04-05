@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: bm;
+            src: url(/font/ttf/BMDOHYEON_ttf.ttf);
+        }
+        @font-face {
+            font-family: bm2;
+            src: url(/font/ttf/BMYEONSUNG_ttf.ttf);
+        }
+        body{
+            background-color: #55c0bc;
+        }
+        header{
+            font-family: bm;
+            text-align: center;
+            margin: 20px;
+        }
+        div{
+            font-family: bm2;
+            text-align: center;
+        }
+        header h1{
+            font-size: 60px;
+        }
+        header h3{
+            font-size: 30px;
+        }
+        .menu{
+            width: 300px;
+            background-color: white;
+            margin: 0 auto;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        .menu div:first-child {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+            background-size: 300px, 200px;
+            border-radius: 10px 10px 0 0;
+        }
+        .image1{
+            background-image: url(/image/초밥.jpg);
+        }
+        .image2{
+            background-image: url(/image/갈비찜.jpg);
+        }
+        .image3{
+            background-image: url(/image/떡볶이.jpeg);
+        }
+        .image4{
+            background-image: url(/image/돈가스.jpg);
+        }
+        .image5{
+            background-image: url(/image/짜장면.png);
+        }
+        .menu div h3{
+            font-size: 20px;
+        }
+        .menu>div>p:nth-of-type(1) {
+            font-size: 17px;
+        }
+        .menu>div>p:last-child {
+            padding-bottom: 20px;
+            color: blue;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- 가로 300px -->
+    <header>
+        <div class="logo"></div>
+        <h1>배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </header>
+    <!-- 메뉴 -->
+    <div class="menu">
+        <div class="image1"></div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+            <p><del>25,000원</del> 15,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image2"></div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+            <p><del>25,000원</del> 15,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image3"></div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+            <p><del>25,000원</del> 15,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image4"></div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+            <p><del>25,000원</del> 15,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="image5"></div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+            <p><del>25,000원</del> 15,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+</body>
+</html>

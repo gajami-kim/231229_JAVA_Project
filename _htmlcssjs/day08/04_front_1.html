@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 기본태그들이 가지고 있는 고유 속성들을 없애주는 코드 */
+        @import url(reset.css);
+        .container{
+            width: 100%;
+            /* vh/vw : 모니터(브라우저 기준) 높이 */
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), 
+            url(/image/design3.jpg);
+            background-size: cover;
+        }
+        .nav{
+            width: 90%;
+            /* background-color: yellowgreen; */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px auto;
+        }
+        .container .nav h1 a{
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .container .nav ul{
+            display: flex;
+            justify-content: space-between;
+        }
+        .container .nav ul li{
+            margin: 0 10px;
+        }
+        .container .nav ul li a{
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .container .nav ul li a:hover{
+            color: rgb(255, 190, 69);
+        }
+        .main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .main h2{
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .main button {
+            border: 2px solid green;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgba(0,0,0,0.0);
+        }
+        .main button:hover{
+            background-color: rgba(44, 218, 136, 0.5);
+            color: black;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h1><a href="">DESIGN</a></h1>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">SIGNUP</a></li>
+                <li><a href="">BOARD</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <h2>Welcome to Front-End World</h2>
+            <a href=""><button>Learn More</button></a>
+        </div>
+    </div>
+</body>
+</html>

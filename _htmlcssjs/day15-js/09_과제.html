@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        1~45까지 중복되지 않게 숫자 6개를 랜덤으로 추출 => 출력<br>
+        set 객체를 사용하여 생성
+    </h1>
+    <button type="button" onclick="random()">랜덤번호 6자리 생성(출력)</button>
+    <h3 id="randomNum">랜덤번호</h3>
+    <button type="button" onclick="win()">당첨번호 7자리(마지막번호는 보너스번호) 생성(출력)</button>
+    <h3 id="winNum">당첨번호</h3>
+    <button type="button" onclick="result()">결과확인</button>
+    <h3 id="printR">당첨확인</h3>
+
+    <script>
+        const randomSet = new Set();
+        const winSet = new Set();
+        const randomNum = document.getElementById('randomNum');
+        const winNum = document.getElementById('winNum');
+        const printR = document.getElementById('printR');
+        const ranArray = [];
+        const winArray = [];
+
+        function rNum(){
+            return Math.floor(Math.random()*10)+1
+        }
+
+        function random(){
+            let printR='';
+            console.log(randomSet.size);
+            while(randomSet.size<6){
+                let r = rNum();
+                randomSet.add(r);
+                ranArray.push(r);
+            }
+            console.log(randomSet);
+            ranArray.forEach(function(v, i){
+                if(i==ranArray.length-1) {
+                    randomNum.innerText =`${v}`;
+                } else {
+                    randomNum.innerText =`${v}, `;
+                }
+            })
+            console.log(ranArray.length-1);
+            // randomNum.innerText = printR;
+        }
+
+        function win(){
+            let printW='';
+            while(winSet.size<7) {
+                let w = rNum();
+                winSet.add(w);
+                winArray.push(w);
+            }
+            console.log(winSet);
+            winArray.forEach(function(v){
+                let bonus = winArray[winArray.legth] = `[${v}]`;
+                printW+=`${v}, `;
+            })
+            //  myArray2[myArray2.length] = 6;
+            winNum.innerText = printW;
+        }
+
+        
+        function result(){
+            const arrayR = Array.from(randomSet);
+            const arrayW = Array.from(winSet);
+            let count=0;
+
+            count = arrayR.filter(x => arrayW.includes(x));
+            console.log(count);
+            console.log(count.length);
+            switch(count.length) {
+                case 1: printR.innerText = `(${count.length}) 축~ 6등 당첨!!`; break;
+                case 2: printR.innerText = `(${count.length}) 축~ 5등 당첨!!`; break;
+                case 3: printR.innerText = `(${count.length}) 축~ 4등 당첨!!`; break;
+                case 4: printR.innerText = `(${count.length}) 축~ 3등 당첨!!`; break;
+                case 5: printR.innerText = `(${count.length}) 축~ 2등 당첨!!`; break;
+                case 6: printR.innerText = `(${count.length}) 축~ 1등 당첨!!`; break;
+            }
+        }
+    </script>
+</body>
+</html>

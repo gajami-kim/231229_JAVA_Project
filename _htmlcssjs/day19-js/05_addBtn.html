@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">엘리먼트 만들기</button>
+    <div id="space"></div>
+    <div id="space2"></div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            document.getElementById('space').innerHTML =
+            `<button type="button" id="btn2">생성된 버튼</btn>`;
+                document.getElementById('btn2').addEventListener('click',()=>{
+                    document.getElementById('space2').innerHTML =
+                    `<h2>생성된 버튼 클릭</h2>`;
+                })
+        })
+    </script>
+</body>
+</html>

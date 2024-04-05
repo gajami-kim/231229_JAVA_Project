@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        form{
+            margin: 0 auto;
+            width: 70%;
+            height: 100px;
+            background-color: lightsteelblue;
+            line-height: 100px;
+        }
+        form input{
+            height: 25px;
+            width: 60%;
+        }
+        /* #wish{
+            display: flex;
+            background-color: lightpink;
+            justify-content: space-between;
+            width: 60%;
+            margin: 0 auto;
+        } */
+        #wish li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wapper">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+
+    <script>
+        let itemList=[];
+        let str='';
+        
+        document.addEventListener('click',(e)=>{
+            console.log(e.target.classList);
+            if(e.target.classList.contains('list')){
+                console.log('111');
+            }
+        })
+
+        document.getElementById('add').addEventListener('click',add);
+        
+        function add(){
+            let item = document.getElementById('item');
+            if(item.value!==''){
+                itemList.push(item.value);
+                console.log(itemList);
+            }
+            // printList();
+        }
+
+        function printList(){
+
+            document.getElementById('itemList').innerHTML = str;
+        }
+    </script>
+</body>
+</html>

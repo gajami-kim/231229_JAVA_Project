@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url(/image/design3.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        header {
+            margin-left: 50px;
+            font-size: 15px;
+        }
+        ul li{
+            list-style: none;
+            float: left;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        ul li:last-child {
+            margin-right: 40px;
+        }
+        .main{
+            position: absolute;
+            font-size: 50px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-80%);
+            text-align: center;        
+        }
+        .main a {
+            position: absolute;
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            border: 3px solid green;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 45px;
+            text-decoration: none;
+            color: white;
+            padding: 5px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,170%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DESIGN</h1>
+        </header>
+        <div class="nav">
+            <ul>
+                <li>HOME</li>
+                <li>LOGIN</li>
+                <li>SIGNUP</li>
+                <li>BOARD</li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        Welcome to Front-End <br> World
+        <a href="">Learn More</a>
+    </div>
+</body>
+</html>

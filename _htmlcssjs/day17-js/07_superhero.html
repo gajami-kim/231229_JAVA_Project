@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee&family=Vast+Shadow&family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee&display=swap" rel="stylesheet">
+
+    <style>
+        h1{
+            font-family: "Bungee", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            /* font-size: 60px; */
+        }
+        #mid{
+            font-weight: bold;
+        }
+        h1, #mid{
+            text-align: center;
+        }
+        #info{
+            display: flex;
+            width: 80%;
+            margin: 50px auto;
+            justify-content: space-between;
+        }
+        div p:nth-child(1){
+            font-family: "Wallpoet", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            /* font-size: 35px; */
+        }
+    </style>
+</head>
+<body>
+    <h1>SUPER HERO SQUAD</h1>
+    <div id="mid">Hometown : Metro City // Formed : 2016</div>
+    <div id="info">
+        <div id="bt1">
+            <p>MOLECULE MAN</p>
+            <p id="si1">SecretIdentity : </p>
+            <p id="age1">Age : </p>
+            <p>Superpowers : </p>
+            <ul id="ul1"></ul>
+        </div>
+        <div id="bt2">
+            <p>MADAME UPPERCUT</p>
+            <p id="si2">SecretIdentity : </p>
+            <p id="age2">Age : </p>
+            <p>Superpowers : </p>
+            <ul id="ul2"></ul>
+        </div>
+        <div id="bt1">
+            <p>MOLECULE MAN</p>
+            <p id="si3">SecretIdentity : </p>
+            <p id="age3">Age : </p>
+            <p>Superpowers : </p>
+            <ul id="ul3"></ul>
+        </div>
+    </div>
+
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(result => printData(result))
+        .then(err => console.log(err));
+
+        function printData(obj){
+            console.log(obj);
+            let ul = document.getElementById('ul');
+            for(let a of obj.members){
+                if(a.name=='Molecule Man') {
+                    document.getElementById('si1').innerText +=
+                    ` ${a.secretIdentity}`;
+                    document.getElementById('age1').innerText += ` ${a.age}`;
+                    for(let i=0; i<a.powers.length; i++) {
+                        document.getElementById('ul1').innerHTML += `<li>${a.powers[i]}</li>`;
+                    }
+                    console.log(a)
+                }
+                if(a.name=='Madame Uppercut'){
+                    console.log(a)
+                    document.getElementById('si2').innerText +=
+                    ` ${a.secretIdentity}`;
+                    document.getElementById('age2').innerText += ` ${a.age}`;
+                    for(let i=0; i<a.powers.length; i++) {
+                        document.getElementById('ul2').innerHTML += `<li>${a.powers[i]}</li>`;
+                    }
+                    console.log(a)
+                }
+                if(a.name=='Eternal Flame'){
+                    console.log(a)
+                    document.getElementById('si3').innerText +=
+                    ` ${a.secretIdentity}`;
+                    document.getElementById('age3').innerText += ` ${a.age}`;
+                    for(let i=0; i<a.powers.length; i++) {
+                        document.getElementById('ul3').innerHTML += `<li>${a.powers[i]}</li>`;
+                    }
+                    console.log(a)
+                }
+            }
+        }
+         
+    </script>
+</body>
+</html>

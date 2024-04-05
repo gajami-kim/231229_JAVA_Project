@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>타입변환 casting(형변환)</h1>
+    <ul>
+        <li>
+            문자 -> 숫자 : Number('string'), parseInt('1'), parseFloat('0.5');
+        </li>
+        <li>
+            숫자-> 문자 : 123.toString()
+        </li>
+        <li>
+            문자 -> boolean : Boolean('true')
+        </li>
+        <li>
+            boolean -> 문자 : String(true)
+        </li>
+        <li>
+            숫자 -> boolean : Boolean(1) / Boolean(0) => 보통 1은 true, 0은 false
+        </li>
+        <li>
+            boolean -> 숫자 : Number(true), Number(false) => 1,0 출력
+        </li>
+    </ul>
+
+    <script>
+        console.log(String(true), typeof String(true)); //string
+        console.log(Boolean(123), typeof Boolean(123)); //true, boolean
+        console.log(Boolean(-123), typeof Boolean(-123)); //true, boolean
+        console.log(Number(true), typeof Number(true)); //1, number
+        console.log(Number(false), typeof Number(false)); //0, number
+        // console.log();
+        // console.log();
+    </script>
+</body>
+</html>

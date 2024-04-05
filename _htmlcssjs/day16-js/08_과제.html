@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 구구단 문제 -->
+  <h1>
+    <button type="button" id="startBtn">문제출제</button>
+  </h1>
+  <ol id="q"></ol>
+  <h1>
+    <button type="button" id="compareBtn">정답확인</button>
+  </h1>
+  <h3 id="printRatio"></h3>
+
+  <script>
+    const ansObj = {}; //정답을 담을 객체
+    // 반복문
+    // ansObj[`ans${i}`] = dan * incre;
+    // userInput.style.backgroundColor = 'green';
+    const quizArea = document.getElementById('q');
+    let count=0; //전체개수
+    let correct=0; //맞춘개수
+
+    document.getElementById('startBtn').addEventListener('click',()=>{
+      //문제출제
+      count = 0;
+      quizArea.innerHTML=''; //지난 문제 제거
+      do{
+        count++;
+        let dan = makeRandom(9,2);
+        let incre = makeRandom(9,1);
+        let answer = dan * incre; //정답
+        ansObj[`ans${count}`]=answer; //Object에 정답을 추가
+        // quiz 영역에 뿌리기
+        let q = `<li> ${dan} * ${incre} = `;
+          q+=`<input type="text" id="userAns${count}">`
+          q+=`</li>`;
+          quizArea.innerHTML += q;
+        } while(count<10);
+        console.log(ansObj)
+        count = 0;  
+    });
+
+    //dan, incre => random
+    // function makeRandom(count, start){ //방법 1
+    //   return Math.floor(Math.random()*count)+start;
+    // }
+    function makeRandom(max,min){ //방법2
+      return Math.floor(Math.random()*(max-min+1))+min;
+    }
+
+    document.getElementById('compareBtn').addEventListener('click',()=>{
+      //정답확인
+      while(count<10){
+        count++; //1부터 값을 주기위해 증가시키고 시작
+        let userInput = document.getElementById('userAns'+count); //각 번지의 정답을 가지고와라
+        if(Number(userInput.value) == ansObj[`ans${count}`]){
+          correct++; //정답개수
+          userInput.value += ` : 정답`; //기존 답에 붙이기 위해 누적으로
+          //스타일을 속성으로 직접 지정할 경우 -를 지우고 카멜케이스로 변경1
+          userInput.style.backgroundColor="green";
+        } else {
+          userInput.value += ` : 오답`;
+          userInput.style.backgroundColor = "red";
+        }
+        document.getElementById('printRatio').innerText =
+        `정답개수 : ${correct}, 정답률 : ${(correct/count).toFixed(2)*100}%`
+        correct = 0;
+      }
+    })
+
+  </script>
+</body>
+</html>

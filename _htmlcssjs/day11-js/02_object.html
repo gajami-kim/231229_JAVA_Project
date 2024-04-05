@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체(object)</h1>
+    <ul>
+        <li> object : (식별할 수 있는 것의)데이터의 구조를 상세 특징으로 표현하려는 형식 </li>
+        <li> const로 선언하는 것이 일반적 : 객체의 구조를 지속성이 있게 유지하고, 확보하기 위함 </li>
+        <li> { 속성명 : 값, 속성명 : 값, 속성명 : 값 ...} </li>
+        <li> 속성명 : key, 값 : value </li>
+        <li> 같은 object 내에 같은 속성명은 불가능 (key 중복 불가능) </li>
+        <li> 객체 내부에서 속성값으로 사용할 수 있는 데이터의 제한이 없음 </li>
+        <li> 
+            객체의 속성값으로 익명함수를 정의 => 메서드라고 부름 
+            메서드의 이름은 속성명이 됨
+        </li>
+    </ul>
+    <script>
+        const car={
+            name : 'myCar',
+            year : 2024
+        };
+        console.log(car);
+        // car=100; //재할당 불가능
+
+        let myCar = { //일반적으로는 사용X
+            name : 'superCar',
+            year : 2024
+        };
+        console.log(myCar);
+        myCar=100; // 가능 but 객체가 사라짐 <- 객체를 활용하려고 했던 목적 자체가 사라짐
+        console.log(myCar);
+        console.log('----------');
+
+        //객체 <- 객체 <- 키, 함수
+        const me = {
+            name : '김정온',
+            age : 26,
+            addr : 'incheon',
+            isDeveloper : true,
+            'hobby' : 'coffee',
+            'myFavor' : 'game',
+            avail:{
+                year:2020,
+                title:'javascript',
+                ver:'ES6+',
+                project:'Back-End',
+                intro: function(){
+                    console.log("ex1) "+this.title+":"+this.ver);
+                    console.log("ex2) "+me.avail.title+":"+me.avail.ver);
+                }
+            },
+            year : 2024
+        };
+        console.log(me); //객체를 모두 표시
+        console.log(me.name);
+        console.log(me.age);
+        console.log(me.avail.title);
+        console.log(me.avail.intro); //함수의 내용을 표시
+        me.avail.intro(); //함수를 실행 (함수이기 때문에 뒤에 괄호 붙여줘야함)
+        console.log('-----------');
+        console.log(me['addr']); //대괄호 안에 실제 텍스트값을 넣음
+        console.log(me['hobby']);
+        console.log(me['avail']['ver']);
+        console.log(me['avail'].project); //섞어서도 가능
+        me['avail']['intro']();//함수실행
+
+        let keyName = 'age';
+        console.log(me.keyName); //keyName 값을 가져올 수 없음(인식X)
+        console.log(me[keyName]); //age 값을 인식하여 가져옴 / 키의 값이 변경되는 경우를 위해 []를 사용함
+
+        console.log('-----------');
+
+        //객체생성
+        //좋아하는 가수의 인적사항, 가수의 플레이리스트 3곡
+        //이름, 나이, 주소, 플레이리스트(객체), 함수(pl1, pl2, pl3) => 콘솔에 출력
+        //이름(나이),주소
+        //가수의 노래 : 플레이리스트 객체
+        //함수실행
+        const singer = {
+            name : '플레이브',
+            age : 20,
+            addr : 'seoul',
+            playlist : {
+                pl1 : '기다릴게',
+                pl2 : 'way 4 luv',
+                pl3 : '픽셀월드',
+            },
+            ppl: function(pl4, pl5, pl6){
+                console.log(this.playlist.pl1, this.playlist.pl2, this.playlist.pl3);
+                console.log('나의 플레이리스트: '+pl4+", "+pl5+", "+pl6);
+            }
+        };
+        console.log(`${singer.name}(${singer.age}),${singer.addr}`);
+        console.log('가수의 노래: '+singer.playlist.pl1+", "+ singer.playlist.pl2+", "+ singer.playlist.pl3);
+        singer.ppl('메리플리스마스','우리영화','dear.plli');
+    </script>
+</body>
+</html>

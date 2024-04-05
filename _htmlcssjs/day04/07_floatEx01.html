@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 자식 box 3개가 화면을 꽉차게 동일한 크기로 구성 -->
+    <!-- 가로로 꽉차게 설정 -->
+    <style>
+        .pbox{
+            width: 500px;
+            height: 150px;
+            background-color: gold;
+        }
+        .box1,.box2,.box3{
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid black;
+            /* 자식 요소의 width = 100%는 부모의 100% */
+            width: calc(100% / 3);
+            /* width: 32.9%(content-box); */
+            height: 150px;
+        }
+        .pbox::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="pbox">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

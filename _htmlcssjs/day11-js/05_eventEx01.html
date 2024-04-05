@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #deg{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        성적확인
+        이름:홍길동
+        국어:80
+        영어:90
+        수학:80
+        성적계산버튼
+        이름, 성적 input형태로
+        ---------------
+        ul>li 형태로
+        이름:홍길동
+        국어:80
+        영어:90
+        수학:80
+        합계:**
+        평균:**
+     -->
+     <form action="">
+        <fieldset>
+            <legend> 성적확인 </legend>
+                이름: <input type="text" id="name"> <br>
+                국어: <input type="text" id="kor"><br>
+                수학: <input type="text" id="mat"><br>
+                영어: <input type="text" id="eng"><br><br>
+                <button type="button" onclick="degFunc()">성적계산</button>
+        </fieldset>
+     </form>
+     <ul id="deg"></ul>
+
+     <script>
+        const deg = document.getElementById('deg');
+        
+        function degFunc(){
+            
+            let name = document.getElementById('name').value;
+            let kor = document.getElementById('kor').value;
+            let mat = document.getElementById('mat').value;
+            let eng = document.getElementById('eng').value;
+            
+            let korV = Number(kor);
+            let matV = Number(mat);
+            let engV = Number(eng);
+            let sum = korV+matV+engV;
+            let avg = Math.round(sum / 3); //정수로 반올림
+            let avg2 = (sum / 3).toFixed(2); //.toFixed(2) : 소수점 자리표현
+            
+            //방법1
+            deg.innerHTML = `<li>이름: ${name}</li>`;
+            deg.innerHTML += `<li>국어: ${kor}</li>`;
+            deg.innerHTML += `<li>수학: ${mat}</li>`;
+            deg.innerHTML += `<li>영어: ${eng}</li>`;
+            deg.innerHTML += `<li>합계: ${sum}</li>`;
+            deg.innerHTML += `<li>평균: ${(sum)/3} </li>`;
+            deg.innerHTML += `<li>평균: ${avg2} </li>`;
+
+            //방법2
+            // let str = `<li>이름: ${name}</li>`;
+            // str += `<li>국어: ${kor}</li>`;
+            // str += `<li>수학: ${mat}</li>`;
+            // deg.innerHTML = str;
+        }
+     </script>
+</body>
+</html>

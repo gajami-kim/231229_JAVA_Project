@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 가장 큰 사이즈 1200px  -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        div {
+            width: 100%;
+        }
+        .header {
+            height: 30px;
+            background-color: beige;
+            font-weight: bold;
+            padding: 10px 0 0 10px;
+        }
+        .main-image {
+            height: 500px;
+            background-image: url(/image/노을.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .text {
+            height: 250px;
+            background-color: whitesmoke;
+            padding : 30px 0 0 30px;
+        }
+        .port{
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(160, 159, 159);
+        }
+        .content{
+            font-size: 25px;
+            font-weight: bold;
+            padding-top: 50px;
+        }
+        .content2{
+            font-size: 15px;
+            padding-top: 20px;
+        }
+        .subject, .subject2, .subject3{
+            height: 250px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .subject{
+            background-image: url(/image/photo2.jpg);
+        }
+        .subject2{
+            background-image: url(/image/photo3.jpg);
+            position: relative;
+            text-align: center;
+        }
+        .subject3{
+            background-image: url(/image/photo1.jpg);
+        }
+        a{
+            width: 200px;
+            height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            color: snow;
+            border: 5px solid snow;
+            padding: 10px 20px;
+            text-decoration: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @media screen and (min-width:800px) {
+            .subject{
+                width: 50%;
+                height: 250px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                float: left;
+            }
+            .subject2, .subject3{
+                width: 50%;
+                height: 125px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                float: right;
+            }
+            .subject{
+                background-image: url(/image/photo2.jpg);
+            }
+            .subject2{
+                background-image: url(/image/photo3.jpg);
+                position: relative;
+            }            
+            .view-more{
+                width: 100px;
+                height: 25px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                color: snow;
+                border: 5px solid snow;
+                padding: 10px 20px;
+                text-decoration: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .subject3{
+                background-image: url(/image/photo1.jpg);
+            }
+            .clear{
+                clear: both;
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+            .main-image {
+                height: 950px;
+                width: 50%;
+                background-image: url(/image/노을.jpg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                float: left;
+            }
+            .text {
+                width: calc(50% - 30px);
+                height: 475px;
+                background-color: whitesmoke;
+                padding : 30px 0 0 30px;
+                float: right;
+            }
+            .port{
+                font-size: 20px;
+                font-weight: bold;
+                color: rgb(160, 159, 159);
+            }
+            .content{
+                font-size: 30px;
+                font-weight: bold;
+                padding-top: 70px;
+            }
+            .content2{
+                font-size: 18px;
+                padding-top: 50px;
+            }
+            .subject{
+                width: 25%;
+                height: 445px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                float: rigth;
+            }
+            .subject2, .subject3{
+                width: 25%;
+                height: calc(445px / 2);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                float: right;
+            }
+            .subject{
+                background-image: url(/image/photo2.jpg);
+            }
+            .subject2{
+                background-image: url(/image/photo3.jpg);
+                position: relative;
+                text-align: center;
+            }
+            .view-more{
+                width: 200px;
+                height: 50px;
+                /* text-align: center; */
+                font-size: 30px;
+                font-weight: bold;
+                color: snow;
+                border: 5px solid snow;
+                padding: 10px 20px;
+                text-decoration: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .subject3{
+                background-image: url(/image/photo1.jpg);
+            }
+            .clear{
+                clear: both;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">IN'O</div>
+    <div class="main-image"></div>
+    <div class="text">
+        <div class="port">Portfolio</div>
+        <div class="content">Make portfolio by jungon</div>
+        <div class="content2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore explicabo animi
+            blanditiis aliquam laudantium quod, enim quaerat delectus alias, ullam sint molestias quae magnam cupiditate
+            itaque eligendi, quasi error? Veniam.</div>
+    </div>
+    <div class="subject"></div>
+    <div class="subject2">
+        <a href="">view more</a>
+    </div>
+    <div class="subject3"></div>
+    <div class="clear"></div>
+</body>
+
+</html>

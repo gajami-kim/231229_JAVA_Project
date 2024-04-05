@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend> 성적확인 </legend>
+                이름: <input type="text" id="name"> <br>
+                국어: <input type="text" id="kor"><br>
+                수학: <input type="text" id="mat"><br>
+                영어: <input type="text" id="eng"><br><br>
+                <button type="button" id="btn">성적계산</button>
+        </fieldset>
+     </form>
+     <h3 id="result">
+        <!-- 이름, 합계, 평균, 합격여부(평균이 60점 이상) -->
+        <!-- 입력한 성적의 점수값이 0~100 사이의 값이 아니면 alert창 띄워 안내, 점수 지우기 -->
+     </h3>
+
+     <script>
+        
+        const kor = document.getElementById('kor');
+        const mat = document.getElementById('mat');
+        const eng = document.getElementById('eng');
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            let name = document.getElementById('name').value;
+            let sum = Number(kor.value)+Number(mat.value)+Number(eng.value);
+            let avg = Math.round(sum/3);
+            let pass;
+            if(avg>=60) {
+                pass = '합격';
+            } else {
+                pass = '불합격';
+            }
+            let str = `이름: ${name} <br> 합계: ${sum} <br> 평균: ${avg} <br> 합격여부: ${pass} <br>`;
+
+            if(kor.value>100 || kor.value<0 || mat.value>100 || mat.value<0 || eng.value>100 || eng.value<0){
+                alert('0-100사이의 값을 넣어주세요.');
+                kor.value = null;
+                mat.value = null;
+                eng.value = null;
+                str=null;
+            }
+            
+            document.getElementById('result').innerHTML = str;
+            
+        })
+     </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: blanchedalmond;
+            border: 1px solid black;
+            width: 100px;
+            height: 30px;
+        }
+        .naver{
+            color: red
+        }
+        .naver:visited {
+            color: aqua;
+        }
+        .naver:active {
+            color: rgb(129, 196, 30);
+        }
+        .google {
+            color: green;
+        }
+        .google:hover {
+            color: yellow;
+        }
+        .daum {
+            color: blue;
+        }
+        .daum:active {
+            color: brown;
+        }
+        ul>li::after {
+            content: ".";
+        }
+        li:nth-child(even) {
+            color: red;
+        }
+        li:nth-of-type(3n) {
+            color: green;
+        }
+        li:last-child, li:first-child {
+            font-weight: 700;
+        }
+        ul {
+            padding-left: 0;
+        }
+        ul li {
+            list-style: none;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        div 3개를 만들어 네이버, 구글, 다음 사이트로 연결 
+        새 창에 띄워지도록
+        각각의 div 색을 달리하여 스타일 주기
+        링크색도 변경
+    
+        ul > li*10
+        짝수만 빨간색
+        3 6 9 초록색
+        1 10 굵게 처리
+        뒤 요소에 .을 추가
+    -->
+    <div>
+        <a href="http://naver.com" target="_blank" class="naver">naver</a>
+    </div>    
+    <div>
+        <a href="http://google" target="_blank" class="google">google</a>
+    </div>    
+    <div>
+        <a href="http://daum.net" target="_blank" class="daum">daum</a>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</body>
+</html>

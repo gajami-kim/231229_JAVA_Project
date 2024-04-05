@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .round{
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: relative;
+        }
+        .text{
+            width: 280px;
+            height: 50px;
+            border: 3px solid black;
+            position: absolute;
+            font-size: 30px;
+            font-weight: bold;
+            left: 6px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .box{
+            position: absolute;
+            width: 280px;
+            height: 350px;
+            border: 3px solid black;
+            top: 72px;
+            left: 6px;
+        }
+        .box1{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            border: 3px solid antiquewhite;
+            margin-left: 40px;
+            margin-top: 70px;
+            z-index: 3;
+        }
+        .box2{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            border: 3px solid antiquewhite;
+            margin-left: 85px;
+            margin-top: 110px;
+            z-index: 2;
+        }
+        .box3{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: darkslateblue;
+            border: 3px solid antiquewhite;
+            margin-left: 130px;
+            margin-top: 150px;
+            z-index: 1;
+        }
+        .t1{
+            top: 10px;
+        }
+        .t2{
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="round">
+        <div class="text t1">텍스트</div>
+        <div class="box">
+            <div class="box1"></div>
+            <div class="box2"></div>
+            <div class="box3"></div>
+        </div>
+        <div class="text t2">텍스트</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>3개를 랜덤으로 출제 맞추는 게임</h1>
+    <ul>
+        <li>세 자리의 숫자는 중복되면 안됨(각 숫자는 자리수를 갖고있음)</li>
+        <li>각 자리수와 입력한 숫자가 일치하면 1S</li>
+        <li>숫자만 포함되어 있으면 1B</li>
+        <li>숫자가 전혀 없으면 out</li>
+        <li>3S 게임 종료</li>
+        <li>비어있거나 숫자가 3자리를 넘어가거나 똑같은 숫자를 넣으면 등등.. => 게임X</li>
+    </ul>
+    <hr>
+    <button type="button" id="startBtn" >게임시작</button><br>
+    <h3 id="h3"></h3>
+    숫자입력 : <input type="text" id="user">
+    <button type="button" id="result">게임확인</button>
+    <ol id="ol"></ol>
+
+    <script>
+        //검증 validation 넣어서 숫자면 true -> 게임진행
+        const gameArr = [];
+        const gameSet = new Set();
+        let user = document.getElementById('user');
+        let str = '';
+        
+        document.getElementById('startBtn').addEventListener('click',random);
+        document.getElementById('result').addEventListener('click',playGame);
+        
+        //랜덤숫자 생성
+        function random(){
+            gameSet.clear();
+            ol.innerText = '';
+            
+            while(gameSet.size < 3){
+                let r = Math.floor(Math.random()*10);
+                gameSet.add(r)
+            }
+            for(let num of gameSet){
+                gameArr.push(num);
+            }
+            document.getElementById('h3').innerText = '랜덤숫자를 생성하였습니다.'
+            // console.log(gameArr);
+        }
+        
+        function playGame(){
+            let myNum = [];
+            myNum = (user.value).split(""); //input값 배열에 넣기
+            // validation(myNum); //유효성 검사
+            // console.log(validation(myNum))
+            let stk=0;
+            let ball=0;
+            if(validation(myNum)){
+                console.log(myNum)
+                for(let i=0; i<gameArr.length; i++){
+                    for(let j=0; j<myNum.length; j++) {
+                        if(gameArr[i]==myNum[j] && i==j){
+                            stk++;
+                        } else if(gameArr[i]==myNum[j] && i!==j){
+                            ball++;
+                        }
+                    }
+                }
+                console.log(stk, ball)
+                if(stk==0 && ball==0) {
+                    str += `<li>${myNum} OUT</li>`;
+                } else if(stk==3) {
+                    str+=`<li>${myNum} => Success</li>`;   
+                } else {
+                    str+=`<li>${myNum} => ${stk} Strike, ${ball} ball</li>`;
+                }
+                document.getElementById('ol').innerHTML = str;
+                user.value = ''; //초기화
+                user.focus();
+            } else {
+                document.getElementById('h3').innerText = '유효한 숫자가 아닙니다.'
+            }
+        }
+        
+        //유효성 검사
+        function validation(myNum) {
+            if(myNum.length!=3) {
+                return false;
+            } else if(user.value==''){
+                return false;
+            } else if(isNaN(user.value)){
+                return false;
+            } else if(user.value==''){
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+        </script>
+</body>
+</html>

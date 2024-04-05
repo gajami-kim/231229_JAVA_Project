@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(195, 228, 255);
+        }
+        .container{background-color: rgb(253, 253, 224);
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px 30px;
+        }
+        .text-field, .btn{
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .btn{
+            background-color: rgb(226, 240, 253);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .link{
+            margin-top: 30px;
+        }
+        .link a{
+            color: rgb(48, 48, 48);
+            text-decoration: none;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input type="text" id="id" class="text-field" name="id" placeholder="아이디">
+            <input type="password" id="pw" class="text-field" name="pw" placeholder="비밀번호">
+            <input type="submit" value="로그인" class="btn">
+        </form>
+        <div class="link">
+            <a href="">비밀번호를 잊어버리셨나요</a>
+        </div>
+    </div>
+
+    <script>
+        //^(?=.*\d)(?=.*[A-Za-z])(?=.*).{8,15}$
+        //disable = true / 비활성화
+        //disable = false / 활성화
+        const pw = document.getElementById('pw');
+        const id = document.getElementById('id');
+
+        id.addEventListener('input',()=>{
+            let regId = (/[a-z]{5,}/);
+            console.log(regId.test(id.value));
+        })
+        pw.addEventListener('input',()=>{
+            let reg = (/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,15}$/);
+            console.log(pw.value);
+            console.log(reg.test(pw.value));
+            if(reg.test(pw.value)){
+                this.disable = false;
+            } else {
+                this.disable = true;
+            }
+        })
+    </script>
+</body>
+</html>

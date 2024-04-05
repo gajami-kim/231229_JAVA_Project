@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>form 태그를 통해 데이터 받아오기</h1>
+    <ul>
+        <li>input, textarea, select, html element 속성, 텍스트 데이터를 받아 올 수 있음</li>
+        <li>
+            input tag는 값을 value 속성으로 값이 맵핑이 되어 있어서 value로 값을 가져올 수 있음
+        </li>
+        <li>
+            select => option / radio / checkbox => value 값을 별도로 추가해어야 선택한 값을 가져올 수 있음
+        </li>
+        <li>
+            value / innerText 값은 모두 string 처리됨
+        </li>
+        <li>
+            string 처리된 value 값을 숫자로 사용하기 위해서는 변환이 필요
+        </li>
+    </ul>
+    <form action="">
+        <fieldset>
+            <legend>이벤트를 활용한 데이터 전송</legend>
+            id: <input type="text" id="userid"> <br>
+            pw: <input type="password" id="userpw"> <br>
+            birth: <input type="date" id="birth"> <br>
+            pin: <input type="text" id="pin"> <br>
+            <button type="button" onclick="clickEventInput()">전송</button>
+            <button type="button" onclick="makeList()">리스트로 전송</button>
+        </fieldset>
+    </form>
+    <h3 id="info"></h3>
+    <ol id="ol"></ol>
+
+    <script>
+        const info = document.getElementById('info');
+        
+        //ol 태그 객체를 가져오기
+        //ol에 li태그로 밑에 값을 추가하기
+        //button을 누르면 ol에 li태그 값을 넣어주기
+        const olli = document.getElementById('ol');
+        let userid = document.getElementById('userid');
+        let userpw = document.getElementById('userpw');
+        let birth = document.getElementById('birth');
+        let pin = document.getElementById('pin');
+
+        function makeList(){
+            //value값은 사용자가 입력을 하는 값이기 때문에 value를 함수안에 넣지않고 script 자체에 넣으면
+            //화면을 통해 받은 값이 없기 때문에 실행되지 X
+            // => 해결: script 자체에서는 객체 자체를 받고 함수 안에서 ^value 값^을 받으면 된다 !!
+            //
+            userid.value;
+            userpw.value;
+            birth.value;
+            pin.value;
+
+            // olli.innerHTML = `<li>${userid.value}</li><li>${userpw.value}</li><li>${birth.value}</li><li>${pin.value}</li>`;
+
+            //pin값을 숫자로 변환
+            //string => 숫자로 변환
+            //parseInt(변수) => 정수로 변경(int 형태로 변환)
+            //Number(변수) => 숫자로 변경될 수 있는 값 / 정수소수 상관X
+            let pinVal = Number(pin);
+
+            //날짜로 변환
+            //new Date()
+            let birthVal = new Date(birth.value);
+
+            olli.innerHTML = `<li>${userid.value} ${typeof userid.value}</li>`;
+            olli.innerHTML += `<li>${userpw.value} ${typeof userpw.value}</li>`;
+            olli.innerHTML += `<li>${birthVal} ${typeof birthVal} </li>`;
+            olli.innerHTML += `<li>${pin.value} ${typeof pinVal}</li>`;
+        }
+
+        function clickEventInput(){
+            //화면에 입력한 값을 받아오는 과정
+            //1. 화면에 값이 있어야함
+            //2. 값을 저장할 저장 공간이 있어야함
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let birth = document.getElementById('birth').value;
+            let pin = document.getElementById('pin').value;
+            console.log(`userid:${userid}`);
+            console.log(`userpw:${userpw}`);
+            console.log(`birth:${birth}`);
+            console.log(`pin:${pin}`);
+            
+            let str = `userid:${userid}`;
+            str += `userpw:${userpw}`; // str에 누적
+            str += `birth:${birth}`; // +=을 쓰지않으면 누적X, 덮어쓰임
+            str += `pin:${pin}`;
+            info.innerText= str;
+        }
+    </script>
+</body>
+</html>

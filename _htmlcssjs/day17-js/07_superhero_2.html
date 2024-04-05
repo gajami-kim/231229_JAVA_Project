@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee&family=Vast+Shadow&family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            text-align: center;
+        }
+        #header {
+            margin-bottom: 50px;
+        }
+        #header>h1 {
+            font-family: "Bungee", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 50px;
+        }
+        #section{
+            display: flex;
+            justify-content: center;
+        }
+        #section #hero{
+            margin: 0 30px;
+            text-align: left;
+        }
+        #hero>div:nth-child(1){
+            font-family: "Wallpoet", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header"></header>
+    <section id="section"></section>
+
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(result => printData(result));
+
+        const header = document.getElementById('header');
+        const section = document.getElementById('section');
+        function printData(obj){
+            console.log(obj)
+            let str = '';
+            str+=`<h1>${obj.squadName}</h1>`;
+            str+=`<h3>HomeTown:${obj.homeTown} // Formed: ${obj.formed}</h3>`;
+            header.innerHTML = str;
+
+            // section 넣을 객체 str 생성
+            for(let i=0; i<obj.members.length; i++){
+                let member = obj.members[i];
+                let str1 = `<div id="hero">`;
+                    str1+=`<div>${member.name}</div>`;
+                    str1+=`<div>SecretIdentity : ${member.secretIdentity}</div>`;
+                    str1+=`<div>Age : ${member.age}</div>`;
+                    str1+=`<div>Superpowers : <ul id="power${i}"></ul></div>`;
+                    str1+=`</div>`;
+                    section.innerHTML += str1;
+                    for(const p of member.powers){
+                        document.getElementById(`power${i}`).innerHTML +=
+                        `<li>${p}</li>`;
+                    }
+            }
+        }
+    </script>
+</body>
+</html>

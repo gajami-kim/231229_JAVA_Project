@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(165, 247, 233);
+        }
+        .login{
+            background-color: rgb(252, 252, 241);
+            width: 500px;
+            height: 300px;
+            margin: 250px auto;
+            border-radius: 20px;
+        }
+        .id, .pw{
+            border: none;
+            outline: none;
+            width: 87.4%;
+            height: 60px;
+            border-radius: 10px;
+            margin-left: 20px;
+            padding-left: 10px; /*placeholder의 위치를 밀어주기 위해*/
+            font-size: 14px;
+        }
+        .lg, .a {
+            border: none;
+            outline: none;
+            width: 90%;
+            height: 60px;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        .id{
+            margin-top: 20px;
+        }
+        .pw, .lg{
+            margin-top: 10px;
+        }
+        .lg{
+            background-color: rgb(165, 247, 233);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        a{
+            text-decoration: none;
+            color: grey;
+            padding-left: 150px;
+            font-size: 14px;
+        }
+        a:hover{
+            /* color: rgb(34, 34, 34); */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="login">
+            <input type="text" name="id" class="id" placeholder="아이디">
+            <input type="text" name="pw" class="pw" placeholder="비밀번호">
+            <button type="submit" class="lg">로그인</button>
+            <a href="">비밀번호를 잊어버리셨나요</a>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>날짜 관련 함수</h1>
+    <ul>
+        <li>new Date() : 오늘날짜 반환</li>
+        <li>getFullYear() : 년도만 리턴</li>
+        <li>getMonth()+1 : 월만 리턴 / 0-11월까지만 있어 +1을 꼭 해줘야함</li>
+        <li>getDate() : 일만 리턴 1-31</li>
+        <li>getDay() : 요일 리턴 0(일)-6(토)</li>
+        <li>getHours, getMinutes(), getSeconds() : 시분초 값 리턴</li>
+    </ul>
+    <script>
+        let today = new Date();
+        console.log(today);
+        console.log(today.getFullYear());
+        console.log(today.getMonth()+1);
+        console.log(today.getDate());
+        console.log(today.getDay());
+        console.log(today.getHours());
+        let today2 = today.toLocaleDateString(); //날짜를 String으로 String으로 변환 -> 출력
+        console.log(today2);
+        let time = today.toLocaleTimeString(); //시간을 String으로 String으로 변환 -> 출력
+        console.log(time);
+        let dateTime = today.toLocaleString(); //날짜+시간을 String으로 변환 -> 출력
+        console.log(dateTime);
+    </script>
+</body>
+</html>

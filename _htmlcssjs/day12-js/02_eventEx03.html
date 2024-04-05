@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        가격 : <input type="text" id="price">원 <br>
+        할인율 : <input type="text" id="sale">% <br>
+        <button type="button" onclick="calc()">할인가격 계산</button>
+        <h3 id="h3"></h3>
+    </form>
+
+    <script>
+        function calc(){
+            let price = parseInt(document.getElementById('price').value);
+            let sale = Number(document.getElementById('sale').value); //불러올때 바로 숫자로 변환
+            // let saleP = Math.round(Number(price) / Number(sale));
+            let saleP = price * (sale/100);
+
+            document.getElementById('h3').innerText = 
+            `가격: ${price},할인율: ${sale}%, 할인금액:${saleP}, 지불금액: ${price-saleP}`;
+        }
+    </script>
+</body>
+</html>

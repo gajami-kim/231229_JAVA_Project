@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성 => 과목과 점수 입력
+        map에 추가
+        출력 => map을 출력 ul>li 형태로 출력
+        html : 89...
+        결고 => 합계, 평균, 합격여부(평균>=60)
+     -->
+     과목 : <input type="text" id="sub"><br>
+     점수 : <input type="text" id="sco"><br>
+     <button type="button" id="btn_insert">추가</button>
+     <button type="button" id="btn_print">출력</button>
+     <button type="button" id="btn_pass">결과</button>
+     <h3 id="result"></h3>
+
+     <script>
+        const sub = document.getElementById('sub');
+        const sco = document.getElementById('sco');
+        const scoMap = new Map();
+        let str='';
+        
+        document.getElementById('btn_insert').addEventListener('click',()=>{    
+            scoMap.set(sub.value, sco.value);
+            console.log(scoMap);
+        })
+
+        document.getElementById('btn_print').addEventListener('click',()=>{
+            scoMap.forEach(function(v,i){
+                str+= `<ul><li>${i} : ${v}</li></ul>`;
+            })
+            // console.log(sub_s, sco_s);
+            document.getElementById('result').innerHTML = str;
+        })
+
+        document.getElementById('btn_pass').addEventListener('click',()=>{
+            let sum = 0;
+            scoMap.forEach(function(v){
+                sum += Number(v);
+            })
+            let avg = (sum / scoMap.size).toFixed(2);
+
+            let pass = (avg>=60) ? '합격' : '불합격';
+            console.log(sum, (sum/scoMap.size), pass)
+            str+=`과목의 점수합계: ${sum}, 평균:${avg}, 합격여부:${pass}`;
+            document.getElementById('result').innerHTML = str;
+        })
+     </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>up down game</h1>
+    <button type="button" onclick="random()" id="btn_ran">랜덤 숫자 생성 버튼</button>
+    <button type="button" onclick="randomRet()" id="btn_re">다시시도</button>
+    <h3 id="start"></h3>
+    <input type="text" id="answer">
+    <button type="button" id="btn_result" onclick="game()">정답!!</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let com = 0; //랜덤값
+        let count = 1; //게임횟수
+        let result = document.getElementById('result');
+        
+        function random(){
+            com = Math.floor(Math.random()*99)+1;
+            document.getElementById('start').innerText = `컴퓨터가 랜덤수(1~99)를 생성했습니다.`;
+            console.log(com);
+        }
+        function randomRet(){
+            window.location.reload(); //새로고침
+        }
+        
+        function game(){
+            let play = document.getElementById('answer').value; //input값 
+            
+            if(play>99 || play<1) {
+                alert('1~99 사이의 숫자를 입력해주세요');
+                document.getElementById('answer').value = null;
+            } else if(count!=0) {
+                if(play==com) {
+                    result.innerText = `시도횟수 ${count}, 정답입니다. 컴퓨터 숫자는 ${com}이었습니다.`;
+                } else if(play<com) {
+                    result.innerText = `시도횟수 ${count}, UP!!`;
+                    count++;
+                } else if(play>com){
+                    result.innerText = `시도횟수 ${count}, DOWN!!`;
+                    count++;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

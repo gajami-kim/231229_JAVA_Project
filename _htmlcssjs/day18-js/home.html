@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/day18-js/style.css">
+</head>
+<body>
+    <h1>Travel</h1>
+    <ul>
+        <li class="home2"><a id="home" onclick="clickCity(this)">Home</a></li>
+        <li class="seoul2"><a id="seoul" onclick="clickCity(this)">Seoul</a></li>
+        <li class="tokyo2"><a id="tokyo" onclick="clickCity(this)">Tokyo</a></li>
+        <li class="paris2"><a id="paris" onclick="clickCity(this)">Paris</a></li>
+    </ul>
+    <img src="/image/airplane.jpg" alt="" id="cityImg" class="img2">
+
+    <script>
+        const img2 = document.getElementsByClassName('img2');
+        function clickCity(e){
+            console.log(e)
+            let idVal = e.id;
+            document.getElementById('cityImg').src = 
+            `/image/${idVal}.jpg`;
+        }
+
+        //me
+        document.addEventListener('click',(f)=>{
+            console.log(f.target.classList);
+            if(f.target.classList.contains('seoul2')){
+                img2.src = "/image/seoul.jpeg";
+            }
+            if(f.target.classList.contains('tokyo2')){
+                img2.src = "/image/tokyo.jpg";
+            }
+            if(f.target.classList.contains('paris2')){
+                img2.src = "/image/paris.jpg";
+            }
+            if(f.target.classList.contains('home2')){
+                img2.src = "/image/airplane.jpg";
+            }
+        })
+    </script>
+</body>
+</html>

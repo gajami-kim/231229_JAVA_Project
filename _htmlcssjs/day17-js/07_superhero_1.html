@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee&family=Vast+Shadow&family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee&display=swap" rel="stylesheet">
+
+    <style>
+        header {
+            text-align: center;
+        }
+        header h1{
+            font-family: "Bungee", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 50px;
+        }
+        header div{
+            font-weight: bold;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+        }
+        section #contents{
+            width: 300px;
+            margin: 50px 50px;
+        }
+        section #contents h3{
+            font-family: "Wallpoet", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header id="head">
+        <h1>SUPER HERO SQUAD</h1>
+        <div>Hometown : Metro City // Formed : 2016</div>
+    </header>
+    <section id="sec"></section>
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(result => printData(result))
+        .then(err => console.log(err))
+
+        let sec = document.getElementById('sec');
+        let str = '';
+        function printData(obj){
+            console.log(obj);
+            for(let a of obj.members){
+                // console.log(a)
+                str+=`<div id="contents"><h3>${a.name}</h3>`;
+                str+=`<span>SecretIdentity : ${a.secretIdentity}</span><br>`;
+                str+=`<span>Age : ${a.age}</span><br>`;
+                str+=`<span>SuperPowers : </span><br>`;
+                for(let i=0; i<a.powers.length; i++) {
+                    str+=`<ul><li>${a.powers[i]}</li></ul>`;
+                }
+                str+=`</div>`;
+                sec.innerHTML = str;
+            }
+        }
+    </script>
+</body>
+</html>

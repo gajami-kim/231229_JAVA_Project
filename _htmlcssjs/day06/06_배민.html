@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: #55c0bc;
+            text-align: center;
+            font-family: "Nanum Pen Script", cursive;
+            font-style: normal;
+            overflow-x: hidden; /*가로스크롤 제거*/
+        }
+        .logo{
+            background-image: url(/image/배민.png);
+            background-size: 700px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            padding-top: 100px;
+            /* position: absolute; */
+            animation: move-logo 4s infinite;
+        }
+        h1{
+            font-size: 80px;
+            margin-top: 0px;
+        }
+        header h3{
+            font-size: 30px;
+            margin: 10px 0 40px 0;
+        }
+        .image1{
+            background-image: url(/image/초밥.jpg);
+            background-size: 300px;
+            background-repeat: no-repeat;
+            border-radius: 20px 20px 0 0;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .image2{
+            background-image: url(/image/갈비찜.jpg);
+            background-size: 300px;
+            background-repeat: no-repeat;
+            border-radius: 20px 20px 0 0;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .image3{
+            background-image: url(/image/떡볶이.jpeg);
+            background-size: 300px;
+            background-repeat: no-repeat;
+            border-radius: 20px 20px 0 0;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .image4{
+            background-image: url(/image/돈가스.jpg);
+            background-size: 300px;
+            background-repeat: no-repeat;
+            border-radius: 20px 20px 0 0;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .image5{
+            background-image: url(/image/짜장면.png);
+            background-size: 300px;
+            background-repeat: no-repeat;
+            border-radius: 20px 20px 0 0;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .text{
+            background-color: white;
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 0px;
+            border-radius: 0 0 20px 20px;
+            font-size: 25px;
+        }
+        .text h3{
+            margin-top: 0px;
+            padding-top: 10px;
+        }
+        .text .p{
+            padding-bottom: 10px;
+            margin-bottom: 70px;
+            color: rgb(209, 39, 9);
+        }
+        .menu-box:hover {
+            transform: scale(1.15,1.15);
+        }
+        @keyframes move-logo {
+            0%{transform: translate(100%,0);}
+            50%{transform: translate(-250%, 0);}
+            100%{transform: translate(0, 0);}
+        }
+        .fixed{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: whitesmoke;
+            /* border: 0.5px solid black; */
+            border-radius: 100%;
+            text-align: center;
+            font-size: 25px;
+            line-height: 43px;
+            font-weight: 600;
+        }
+        .fixed a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- 가로 300px -->
+    <header>
+        <div class="logo"></div>
+        <h1>배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </header>
+    <!-- 메뉴 -->
+    <div class="menu">
+        <div class="menu-box">
+            <div class="image1"></div>
+            <div class="text">
+                <h3>맛있는 초밥</h3>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격</p>
+                <p><del>25,000원</del> 15,000원</p>
+                <p class="p">바로결제</p>
+            </div>
+        </div>
+        <div class="menu-box">
+            <div class="image2"></div>
+            <div class="text">
+                <h3>매운 갈비찜</h3>
+                <p>맛있게 매콤하고 푸짐한 엄마표 갈비찜</p>
+                <p><del>33,000원</del> 23,000원</p>
+                <p class="p">바로결제</p>
+            </div>
+        </div>
+        <div class="menu-box">
+            <div class="image3"></div>
+            <div class="text">
+                <h3>매콤달콤 떡볶이</h3>
+                <p>학교 앞에서 먹던 그 맛! 분식집 떡볶이</p>
+                <p><del>10,000원</del> 5,000원</p>
+                <p class="p">바로결제</p>
+            </div>
+        </div>
+       <div class="menu-box">
+        <div class="image4"></div>
+        <div class="text">
+            <h3>두툼한 돈가스</h3>
+            <p>바삭한걸 좋아하는 당신을 위한 메뉴</p>
+            <p><del>15,000원</del> 10,000원</p>
+            <p class="p">바로결제</p>
+        </div>
+       </div>
+        <div class="menu-box">
+            <div class="image5"></div>
+            <div class="text">
+                <h3>후루룩짭짭 짜장면</h3>
+                <p>어머니는 싫다고 하셨지만 나는 좋아하는 짜장면</p>
+                <p><del>10,000원</del> 5,000원</p>
+                <p class="p">바로결제</p>
+            </div>
+        </div>
+    </div>
+    <div class="fixed">
+        <a href="#top">TOP</a>
+    </div>
+</body>
+</html>
