@@ -1,0 +1,19 @@
+package word;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class WordManager {
+	
+	HashMap<String, String> map = new HashMap<>();
+	public void addWord(Scanner sc) {
+		System.out.println("단어:");
+		String word = sc.next();
+		System.out.println("뜻:");
+		String mean = sc.next();
+		map.put(word, mean);
+		System.out.println("단어 추가 완료");
+		
+	}
+
+}

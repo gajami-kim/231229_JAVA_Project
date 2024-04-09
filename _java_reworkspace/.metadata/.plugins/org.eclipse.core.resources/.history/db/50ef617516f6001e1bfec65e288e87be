@@ -1,0 +1,11 @@
+package jdbcBoard;
+
+import java.util.Scanner;
+
+public class BoardController {
+	/* Controller <-> Service <-> DAO <-> DB*/
+	
+	private Scanner sc;
+	private Service svc;
+	private boolean flag;
+}

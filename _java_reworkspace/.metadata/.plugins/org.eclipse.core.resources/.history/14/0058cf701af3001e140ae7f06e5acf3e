@@ -1,0 +1,33 @@
+package word;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class WordManager {
+	
+	HashMap<String, String> map = new HashMap<>();
+	public void addWord(Scanner sc) {
+		System.out.println("단어:");
+		String word = sc.next();
+		System.out.println("뜻:");
+		String mean = sc.next();
+		map.put(word, mean);
+		System.out.println("단어 추가 완료");
+		
+	}
+	public void searchWord(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void printWord() {
+		for(String key : map.keySet()) {
+			System.out.println(key+":"+map.get(key));
+		}
+		
+	}
+	public void fileWord(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

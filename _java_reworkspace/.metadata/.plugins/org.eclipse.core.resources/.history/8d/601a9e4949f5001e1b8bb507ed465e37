@@ -1,0 +1,131 @@
+package board;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+
+public class Board {
+	/* 번호, 제목, 내용, 작성자, 작성일
+	 * - 객체는 독립적 / 각 객체가 하나의 번호를 참고
+	 * 번호는 자동증가 => static
+	 * 모두가 공유할 수 있는 변수가 필요
+	 */
+	
+	private static int count; //자동증가 카운트 
+	private int num;
+	private String title;
+	private String content;
+	private String user;
+	private Date registerDate;
+
+	public Board() {
+		//어떤 보드든 만들어진다면 count 하나 증가
+		count++;
+		num = count; //번호를 num에게 넘겨줌
+		
+		//날짜 자동생성(Date String 처리)
+//		Date register = new Date();
+//		SimpleDateFormat sh = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+//		this.registerDate = sh.format(register);
+		
+		//registerDate를 Date 타입으로 하고싶다면 getter값을 변경 !
+		this.registerDate = new Date();
+	}
+	
+	public Board(String title, String content, String user) {
+		this(); //위에 있는 내 생성자 호출 -> 번호추가, 날짜추가
+		this.title = title;
+		this.content = content;
+		this.user = user;
+	}
+	
+	//번호만 가지는 객체 생성
+	//번호만 일치해도 같은 게시물인지 인지하기 위해 필요한 생성자
+	public Board(int num) {
+		this.num = num;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+//	public String getRegisterDate() {
+//		return registerDate;
+//	}
+	
+	//registerDate가 Date타입일 때 getter에서 string으로 바꿔 처리하는 법
+	public String getRegisterDate() {
+		SimpleDateFormat sh = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		return sh.format(this.registerDate);
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+	
+	@Override
+	public String toString() {
+		return "Board [num=" + num + ", title=" + title + ", content=" + content + ", user=" + user + ", registerDate="
+				+ getRegisterDate() + "]";
+	}
+	
+	public void print() {
+		//하나의 게시글을 정돈하여 보여주는 메서드
+		System.out.println(num+"번");
+		System.out.println("제목:"+title);
+		System.out.println("작성자:"+user);
+		System.out.println("작성일:" +getRegisterDate());
+		System.out.println("내용");
+		System.out.println(content);
+	}
+
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(num,title,content,user,registerDate);
+	}
+
+	@Override
+	//Object로 받아와서 비교를 해야하기 때문에
+	//num만 있는 생성자가 필요 !!
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Board other = (Board) obj;
+		return num == other.num;
+	}
+	
+	
+}

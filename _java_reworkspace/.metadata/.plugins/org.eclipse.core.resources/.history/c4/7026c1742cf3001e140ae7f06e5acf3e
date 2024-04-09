@@ -1,0 +1,64 @@
+package board;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class BoardManager implements BoardInterface {
+	
+	private ArrayList<Board> list = new ArrayList<>();
+	
+
+	@Override
+	public void addBoard(Scanner sc) {
+		System.out.println("제목");
+		String title = sc.next();
+		System.out.println("내용");
+		String content = sc.next();
+		System.out.println("작성자");
+		String user = sc.next();
+		
+		list.add(new Board(title, content, user));
+		System.out.println("게시글 등록완료 !");
+	}
+
+	@Override
+	public void searchBoard(Scanner sc) {
+		System.out.println("검색할 게시글 제목");
+		String title = sc.next();
+		
+		for(Board tmp : list) {
+			if(tmp.getTitle().equals(title)) {
+				System.out.println("검색결과");
+				System.out.println(tmp);
+				return;
+			}
+		}
+		System.out.println("검색결과가 없습니다.");
+	}
+
+	@Override
+	public void modifyBoard(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeBoard(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printBoard() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

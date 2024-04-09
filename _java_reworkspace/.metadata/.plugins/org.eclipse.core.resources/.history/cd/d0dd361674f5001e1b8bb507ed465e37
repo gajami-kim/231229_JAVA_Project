@@ -1,0 +1,20 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class ProductDAOImpl implements DAO {
+
+	//DB연결
+	private Connection conn;
+	//sql 구문을 실행시키는 기능을 하는 객체
+	private PreparedStatement pst;	
+	//쿼리구문 저장하는 String
+	private String query = "";
+
+	public ProductDAOImpl() {
+		//DBConnection Class 생성(싱글톤)
+		DatabaseConnection dbc = DatabaseConnection.getInstance(); //객체생성
+		conn = dbc.getConnection(); //dbc가 연결한 connection을 가져옴
+	}
+}

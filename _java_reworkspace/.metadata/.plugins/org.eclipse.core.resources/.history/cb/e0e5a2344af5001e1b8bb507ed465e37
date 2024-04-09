@@ -1,0 +1,95 @@
+package board;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class BoardManager implements BoardInterface {
+	
+	private ArrayList<Board> list = new ArrayList<>();
+	
+
+	@Override
+	public void addBoard(Scanner sc) {
+		System.out.println("제목");
+		sc.nextLine(); //메뉴에서 입력된 엔터를 처리 (하지않으면 title이 엔터를 잡아 공백으로 출력됨)
+		String title = sc.nextLine(); //공백포함
+		System.out.println("작성자");
+		String user = sc.next();
+		System.out.println("내용");
+		sc.nextLine(); //엔터 처리용
+		String content = sc.nextLine();
+		
+		list.add(new Board(title, content, user));
+		System.out.println("게시글 등록완료 !");
+	}
+
+	@Override
+	public void searchBoard(Scanner sc) {
+		System.out.println("검색할 게시글 번호");
+		int num = sc.nextInt();
+		//indexOf : 해당 객체의 번지를 리턴, 없으면 -1을 리턴
+		//반드시 Object로 값을 넣어야 하마
+		int index = list.indexOf(new Board(num));	
+		
+		if(index!=-1) {
+			//해당 게시글이 있다면
+			Board tmp = list.get(index);
+			tmp.print();
+			return;
+		} else {
+			System.out.println("일치하는 게시글이 없습니다.");
+		}
+	}
+
+	@Override
+	public void modifyBoard(Scanner sc) {
+		System.out.println("수정할 게시글 번호");
+		int num = sc.nextInt();
+		int index = list.indexOf(new Board(num));
+		
+		if(index!=-1) {
+			System.out.println("수정할 제목");
+			sc.nextLine();
+			String title = sc.nextLine();
+			System.out.println("수정할 내용");
+			String content = sc.next(); //바로 위에가 nextLine이면 굳이 다시 Line으로 줄 필요X
+			Board tmp = list.get(index);
+			tmp.setTitle(title);
+			tmp.setContent(content);
+			tmp.print(); //수정확인용
+			System.out.println("수정완료");
+		} else {
+			System.out.println("일치하는 게시글이 없습니다.");
+		}
+		
+	}
+
+	@Override
+	public void removeBoard(Scanner sc) {
+		
+	}
+
+	@Override
+	public void printBoard() {
+		//toString 이용
+		for(Board tmp : list) {
+			System.out.println(tmp.getNum()+"번");
+			System.out.println(tmp.getTitle());
+			System.out.println(tmp.getContent());
+			System.out.println(tmp.getUser());
+			System.out.println(tmp.getRegisterDate());
+			System.out.println();
+		}
+		
+	}
+
+	@Override
+	public void printMenu() {
+		System.out.println("         ---menu---");
+		System.out.println("1.게시글추가|2.게시글검색|3.게시글수정");
+		System.out.println("4.게시글삭제|5.게시글출력|6.종료");
+	}
+
+
+}

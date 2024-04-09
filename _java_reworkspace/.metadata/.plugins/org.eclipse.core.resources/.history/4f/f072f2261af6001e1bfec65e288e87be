@@ -1,0 +1,45 @@
+package jdbcBoard;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+public class BoardDAOImpl implements DAO {
+	
+	//DB연결
+	private Connection conn;
+	private PreparedStatement pst;
+	private String query="";
+
+	public BoardDAOImpl() {
+		DatabaseConnection dbc = DatabaseConnection.getInstance();
+		conn = dbc.getConnection();
+	}
+	
+	@Override
+	public int insert(BoardVO b) {
+		System.out.println("insert DAOImpl success");
+		query = "insert into Board(title, writer, content) values(?,?,?)";
+		try {
+			pst = conn.prepareStatement(query);
+			pst.setString(1, b.getTitle());
+			pst.setString(2, b.getWriter());
+			pst.setString(3, b.getContent());
+			return pst.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("insert Error!");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	@Override
+	public List<BoardVO> selectList() {
+		System.out.println("list DAOImpl success");
+		query ="select * from board order by bno desc";
+		List<BoardVO> list = new ArrayList<>();
+		return null;
+	}
+
+}

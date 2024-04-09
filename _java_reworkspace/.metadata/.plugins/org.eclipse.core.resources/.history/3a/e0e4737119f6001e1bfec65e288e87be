@@ -1,0 +1,16 @@
+package jdbcBoard;
+
+public class BoardServiceImpl implements Service {
+	
+	private DAO dao;
+
+	public BoardServiceImpl() {
+		dao = new BoardDAOImpl();
+	}
+	
+	@Override
+	public int register(BoardVO b) {
+		System.out.println("register serviceImpl success");
+		return dao.insert(b);
+	}
+}

@@ -1,0 +1,47 @@
+package board;
+
+import java.util.Objects;
+import java.util.Scanner;
+
+public class BoardManager implements BoardInterface {
+	
+	
+
+	@Override
+	public void addBoard(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void searchBoard(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyBoard(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeBoard(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printBoard() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void printMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

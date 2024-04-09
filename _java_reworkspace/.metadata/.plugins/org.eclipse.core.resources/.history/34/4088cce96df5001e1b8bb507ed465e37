@@ -1,0 +1,20 @@
+package jdbc;
+
+import java.util.Scanner;
+
+public class ProductController {
+	/* Controller <-> Service <-> DAO <-> DB
+	 * Controller 모든 메뉴에 분기처리
+	 */
+	
+	private Scanner sc;
+	private Service svc; //아직없음(interface)
+	private boolean flag; //종료변수
+
+	public ProductController() {
+		sc = new Scanner(System.in);
+		svc = new ProductServiceImpl(); //service의 구현체
+		flag = true;
+		
+	}
+}

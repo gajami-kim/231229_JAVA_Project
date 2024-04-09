@@ -1,0 +1,14 @@
+package board;
+
+public class BoardMain {
+
+	public static void main(String[] args) {
+		/* board class 생성
+		 * 멤버변수 : 번호, 제목, 내용, 작성자, 작성일
+		 * 번호는 객체가 생성될 때 자동으로 +1 (cnt로 ++?...)
+		 * 클래스 생성시 번호가 일치하면 같은 게시물로 인지
+		 */
+
+	}
+
+}

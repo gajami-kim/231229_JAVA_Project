@@ -1,0 +1,65 @@
+package word;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class WordManager {
+	
+	HashMap<String, String> map = new HashMap<>();
+	public void addWord(Scanner sc) {
+		System.out.print("단어:");
+		String word = sc.next();
+		System.out.print("뜻:");
+		String mean = sc.next();
+		map.put(word, mean);
+		System.out.println("단어 추가 완료");
+		System.out.println();
+		
+	}
+	public void searchWord(Scanner sc) {
+		System.out.print("검색할 단어 > ");
+		String search = sc.next();
+		if(map.containsKey(search)) {
+			System.out.println(search+":"+map.get(search));
+			return;
+		}
+		System.out.println("검색결과가 없습니다.");
+	}
+	
+	public void printWord() {
+		for(String key : map.keySet()) {
+			System.out.println(key+":"+map.get(key));
+		}
+		
+	}
+	public void modWord(Scanner sc) {
+		System.out.println("수정할 단어");
+		String word = sc.next();
+		if(map.containsKey(word)) {
+			System.out.println("수정할 뜻");
+			String modmean = sc.next();
+			map.put(word, modmean);
+			System.out.println("수정완료");
+			return;
+		}
+		System.out.println("수정할 단어가 없습니다.");
+	}
+	public void fileWord() {
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("voca"));
+			for(String key : map.keySet()) {
+				writer.write(key);  
+			}
+			writer.close();
+			System.out.println("파일로 출력하였습니다.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

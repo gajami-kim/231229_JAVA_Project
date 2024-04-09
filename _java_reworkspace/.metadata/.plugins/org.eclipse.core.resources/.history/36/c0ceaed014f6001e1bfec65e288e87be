@@ -1,0 +1,36 @@
+package jdbcBoard;
+
+public class BoardVO {
+	
+	private int bno; //자동생성
+	private String title;
+	private String writer;
+	private String content;
+	private String regdate;
+	private String moddate;
+	
+	public BoardVO() {}
+	
+	//게시글등록용
+	public BoardVO(String title, String writer, String content) {
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+	}
+	
+	//게시글수정용
+	public BoardVO(int bno, String title, String content, String moddate) {
+		this.bno = bno;
+		this.title = title;
+		this.content = content;
+		this.moddate = moddate;
+	}
+	 
+	//게시글출력용(상세)
+	public BoardVO(int bno, String title, String writer, String content, String regdate) {
+		this(title, writer, content);
+		this.bno = bno;
+		this.regdate = regdate;
+	}
+
+}
